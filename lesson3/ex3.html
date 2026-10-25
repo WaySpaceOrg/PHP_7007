@@ -1,11 +1,18 @@
-<p>ราคา <span id="price">45</span> บาท</p>
-<input id="qty" value="3">
-<p id="total"></p>
+<button id="like">❤️ ถูกใจ</button>
+<span id="count">0</span>
 
 <script>
-    const price = Number(document.getElementById("price").textContent);   // 45
-    const qty   = Number(document.getElementById("qty").value);           // 3
+    let likes = 0;
+    const btn = document.getElementById("like");
 
-    document.getElementById("total").textContent = "รวม " + (price * qty) + " บาท";
-    // หน้าเว็บขึ้นว่า: รวม 135 บาท
+    btn.addEventListener("click", function () {
+        likes = likes + 1;
+        document.getElementById("count").textContent = likes;
+
+        if (likes >= 10) {
+            console.log("ยอดนิยมแล้ว!");
+        } else {
+            console.log("อีก " + (10 - likes) + " ครั้ง");
+        }
+    });
 </script>

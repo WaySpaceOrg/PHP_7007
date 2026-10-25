@@ -1,18 +1,11 @@
-<!DOCTYPE html>
-<html lang="th">
-<head><meta charset="UTF-8"><title>JS ตัวแรก</title></head>
-<body>
-    <h1>ร้านกาแฟแมวเหมียว</h1>
+<p>ราคา <span id="price">45</span> บาท</p>
+<input id="qty" value="3">
+<p id="total"></p>
 
-    <script>
-        const shop = "ร้านกาแฟแมวเหมียว";   // ไม่เปลี่ยน
-        let cups = 3;                        // เปลี่ยนได้
+<script>
+    const price = Number(document.getElementById("price").textContent);   // 45
+    const qty   = Number(document.getElementById("qty").value);           // 3
 
-        console.log("ร้าน: " + shop);
-        console.log("ขายไปแล้ว " + cups + " แก้ว");
-
-        cups = cups + 1;
-        console.log("ตอนนี้ " + cups + " แก้ว");   // ตอนนี้ 4 แก้ว
-    </script>
-</body>
-</html>
+    document.getElementById("total").textContent = "รวม " + (price * qty) + " บาท";
+    // หน้าเว็บขึ้นว่า: รวม 135 บาท
+</script>
