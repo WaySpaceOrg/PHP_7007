@@ -1,21 +1,64 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <title>ร้านกาแฟแมวเหมียว</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ร้านกาแฟแมวเหมียว | PHP_7007</title>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#63483f;--muted:#92796f;--pink:#ffe5ed;--cream:#fff8ed;--lav:#f0eaff;--line:#efd8cf}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;color:var(--ink);font-family:Kanit,sans-serif;background:linear-gradient(135deg,#fff9f4,#fff0f4 48%,#f5f0ff)}
+a{color:inherit;text-decoration:none}
+.page{width:min(1050px,calc(100% - 36px));margin:auto}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:22px 0}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-logo{width:76px;height:66px;object-fit:contain;padding:4px;border-radius:18px;background:#ffffffd9;border:1px solid var(--line);box-shadow:0 8px 18px #b98c7930}
+.brand h1{margin:0;font:900 23px Nunito}.brand small{display:block;color:var(--muted);font-size:12px}
+.nav{display:flex;gap:9px;flex-wrap:wrap}.nav a,.pill{padding:9px 15px;border:1px solid #ead5ed;border-radius:999px;background:#ffffffc9;font-size:13px;transition:.2s}.nav a:hover,.action:hover{transform:translateY(-2px)}
+.hero{position:relative;display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:22px;overflow:hidden;padding:clamp(25px,5vw,52px);border:2px solid #f3d4dc;border-radius:32px;background:linear-gradient(115deg,#ffeaf0ed,#fff5e8ed 58%,#f2edffed);box-shadow:0 15px 35px #c9a9d51c}
+.hero:after{content:'✿';position:absolute;right:4%;top:4%;font-size:82px;color:#e8b5c477}
+.eyebrow{display:inline-block;padding:6px 14px;border-radius:999px;background:#fff;color:#b66f78;font-size:13px}
+.hero h2{margin:15px 0 8px;font-size:clamp(30px,5vw,47px);line-height:1.2}.hero h2 span{color:#b97883}
+.hero p{max-width:570px;margin:0;color:#806d67;font-size:16px;line-height:1.9}
+.logo-panel{position:relative;z-index:1;display:grid;place-items:center;padding:14px;border:1px solid #f0d8d2;border-radius:28px;background:#ffffffb8}
+.logo-panel img{display:block;width:min(100%,290px);height:auto;filter:drop-shadow(0 10px 12px #986d5730)}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.action{display:inline-flex;align-items:center;justify-content:center;padding:12px 20px;border-radius:999px;font-weight:600;transition:.2s;box-shadow:0 7px 16px #b98d8030}
+.primary{color:#fff;background:linear-gradient(135deg,#c77f8e,#a987d5)}.secondary{background:#fff;border:1px solid #ead5ed}
+.details{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:24px 0}
+.card{padding:22px;border:2px solid var(--line);border-radius:24px;background:#fffdfb;box-shadow:0 8px 20px #bba6c51c}
+.card:nth-child(2){background:#fff3f6;border-color:#f4d4df}.card:nth-child(3){background:#f6f1ff;border-color:#e2d7f8}
+.card-icon{font-size:29px}.card h3{margin:9px 0 5px;font-size:19px}.card p{margin:0;color:#806d67;font-size:14px;line-height:1.8}
+.note{padding:17px 21px;border:1px solid #efd8cf;border-radius:20px;background:#ffffffc9;color:#806d67;font-size:14px;line-height:1.8}
+footer{padding:24px 0 30px;text-align:center;color:#9a8b83;font:700 12px Nunito}
+@media(max-width:700px){.topbar{align-items:flex-start;flex-direction:column}.hero{grid-template-columns:1fr}.logo-panel img{width:min(75%,250px)}.details{grid-template-columns:1fr}.hero:after{font-size:60px}}
+</style>
 </head>
 <body>
-    <h1>ร้านกาแฟแมวเหมียว</h1>
-
-    <!-- 1. รูปโลโก้ กว้าง 200 -->
-		<img src="logo.png" alt="โลโก้บริษัท" width="200">
-    <p>กาแฟดี แมวน่ารัก เปิดทุกวัน</p>
-
-    <!-- 2. รูปบรรยากาศร้าน -->
-		<img src="https://www.khaosod.co.th/wpapp/uploads/2018/02/59770.jpg" alt="บรรยากาศ1">
-    <!-- 3. ลิงก์ไปหน้าเมนู menu.html -->
-  <a href="menu.html">Menu</a>
-    <!-- 4. ลิงก์ไปแผนที่ https://maps.google.com เปิดแท็บใหม่ -->
-  <a href="https://maps.google.com" target="_blank">เปิดแท็ปใหม่</a>
+<div class="page">
+<header class="topbar">
+<a class="brand" href="../index.html"><img class="brand-logo" src="../assets/php-learning-logo.svg" alt="PHP Learning Space logo"><div><h1>PHP_7007</h1><small>My little space to learn &amp; grow ✨</small></div></a>
+<nav class="nav" aria-label="เมนูนำทาง"><a href="../index.html">⌂ หน้าหลัก</a><a href="index.html">← Lesson 1</a></nav>
+</header>
+<main>
+<section class="hero">
+<div>
+<span class="eyebrow">☕ LESSON 01 · EXERCISE 02</span>
+<h2>ร้านกาแฟแมวเหมียว<br><span>Meow Meow Cafe</span></h2>
+<p>กาแฟหอมละมุน บรรยากาศอบอุ่น และความน่ารักของเจ้าเหมียว ยินดีต้อนรับทุกคนให้แวะมาพักผ่อนในคาเฟ่แสนสบายของเรา</p>
+<div class="actions"><a class="action primary" href="menu.html">☕ ดูเมนูเครื่องดื่ม</a><a class="action secondary" href="https://maps.google.com" target="_blank" rel="noopener">📍 เปิดแผนที่</a></div>
+</div>
+<div class="logo-panel"><img src="../assets/cat-cafe-logo.svg" alt="โลโก้ร้านกาแฟแมวเหมียว รูปแมวอยู่ในแก้วกาแฟ"></div>
+</section>
+<section class="details" aria-label="รายละเอียดร้าน">
+<article class="card"><div class="card-icon">🐱</div><h3>แมวน้อยแสนน่ารัก</h3><p>เติมความสดใสให้วันพักผ่อน ด้วยบรรยากาศอบอุ่นและเป็นกันเอง</p></article>
+<article class="card"><div class="card-icon">☕</div><h3>กาแฟหอมกรุ่น</h3><p>เลือกเครื่องดื่มแก้วโปรด แล้วใช้เวลาเพลิดเพลินไปกับช่วงเวลาดี ๆ</p></article>
+<article class="card"><div class="card-icon">🌷</div><h3>มุมพักผ่อนสบาย ๆ</h3><p>พื้นที่น่ารักสำหรับพบปะเพื่อน ๆ และเก็บภาพความประทับใจ</p></article>
+</section>
+<div class="note">✨ <strong>แบบฝึกหัดที่ 2</strong> · ตัวอย่างการแทรกรูปภาพโลโก้ การสร้างลิงก์ไปยังหน้าเมนู และการเปิดเว็บไซต์แผนที่ในแท็บใหม่</div>
+</main>
+<footer>Meow Meow Cafe · Coffee, Cats &amp; Cozy Moments ♡</footer>
+</div>
 </body>
 </html>
