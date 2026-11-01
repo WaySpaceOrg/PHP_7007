@@ -1,20 +1,34 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 260" role="img" aria-labelledby="title desc">
-<title id="title">โลโก้ร้านกาแฟแมวเหมียว</title>
-<desc id="desc">โลโก้ร้านกาแฟแมวเหมียว รูปแมวน้อยอยู่ในแก้วกาแฟ โทนสีครีม ชมพู และน้ำตาล</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 420" role="img" aria-labelledby="title desc">
+<title id="title">Meow Meow Cafe - Coffee and Cat Logo</title><desc id="desc">A cute little cream-colored cat sitting beside a pink takeaway coffee cup, with pastel hearts and sparkles.</desc>
 <defs>
- <linearGradient id="cup" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f6b8c9"/><stop offset="1" stop-color="#d98aa8"/></linearGradient>
- <linearGradient id="bean" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#9b6b55"/><stop offset="1" stop-color="#6e493d"/></linearGradient>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff8ed"/><stop offset=".55" stop-color="#ffeaf2"/><stop offset="1" stop-color="#eee8ff"/></linearGradient>
+ <linearGradient id="cup" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#ffc9dc"/><stop offset="1" stop-color="#e98eae"/></linearGradient>
+ <linearGradient id="fur" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff0d9"/><stop offset="1" stop-color="#e5bd91"/></linearGradient>
 </defs>
-<circle cx="160" cy="122" r="112" fill="#fff4e8" stroke="#e9cbb5" stroke-width="6"/>
-<path d="M88 110h132v70c0 18-15 33-33 33h-66c-18 0-33-15-33-33z" fill="url(#cup)" stroke="#875b50" stroke-width="6" stroke-linejoin="round"/>
-<path d="M220 126h17c20 0 27 14 22 31-4 14-15 22-39 22" fill="none" stroke="#875b50" stroke-width="9" stroke-linecap="round"/>
-<path d="M115 112l8-36 31 22 15 0 31-22 8 36" fill="#f2d4b9" stroke="#875b50" stroke-width="6" stroke-linejoin="round"/>
-<path d="M122 113c0-26 17-43 38-43s38 17 38 43" fill="#f2d4b9" stroke="#875b50" stroke-width="6"/>
-<path d="M146 111q5-5 10 0M174 111q5-5 10 0" fill="none" stroke="#65463d" stroke-width="4" stroke-linecap="round"/>
-<path d="M157 122q3 4 6 0" fill="none" stroke="#c77c86" stroke-width="4" stroke-linecap="round"/>
-<path d="M160 123l-12 8m12-8 12 8" stroke="#875b50" stroke-width="2.5" stroke-linecap="round"/>
-<path d="M145 133l-22 3m22 3-22 5m52-11 22 3m-22 3 22 5" stroke="#875b50" stroke-width="2" stroke-linecap="round"/>
-<path d="M137 54c-9-12 8-17 0-29m29 26c-9-12 8-17 0-29m29 32c-9-12 8-17 0-29" fill="none" stroke="#c28b72" stroke-width="5" stroke-linecap="round"/>
-<path d="M80 65l5 10 10 5-10 5-5 10-5-10-10-5 10-5zM240 63l4 8 8 4-8 4-4 8-4-8-8-4 8-4z" fill="#e9b56f"/>
-<text x="160" y="242" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="700" letter-spacing="1" fill="#805447">MEOW MEOW CAFE</text>
+<ellipse cx="260" cy="370" rx="190" ry="22" fill="#b99ab8" opacity=".13"/>
+<circle cx="260" cy="195" r="184" fill="url(#bg)" stroke="#f1c5d5" stroke-width="7"/>
+<circle cx="260" cy="195" r="169" fill="none" stroke="#f1cfda" stroke-width="3" stroke-dasharray="7 10"/>
+<!-- stars and hearts -->
+<path d="M95 125l7 15 16 7-16 7-7 16-7-16-16-7 16-7zM413 115l6 13 14 6-14 6-6 14-6-14-14-6 14-6z" fill="#e8b46e"/>
+<path d="M382 236c-13-18-39-2-22 16l22 21 22-21c17-18-9-34-22-16z" fill="#ed9fbd"/>
+<!-- cat body and tail -->
+<path d="M122 322c-12-54 13-96 57-100 33-3 52 24 52 58v52h-94c-8 0-13-4-15-10z" fill="url(#fur)" stroke="#8d6a58" stroke-width="6"/>
+<path d="M137 290c-32 0-48 28-35 49 11 18 38 17 50 1" fill="none" stroke="#d6a879" stroke-width="15" stroke-linecap="round"/>
+<!-- cat ears/head -->
+<path d="M124 176l8-67 55 35 48-1 53-35 10 69" fill="#f0d5b5" stroke="#8d6a58" stroke-width="7" stroke-linejoin="round"/>
+<path d="M143 150l-3-23 31 19zM265 145l29-18 3 22z" fill="#e99fb0"/>
+<path d="M133 177c0-56 35-88 83-88s83 32 83 88c0 52-36 82-83 82s-83-30-83-82z" fill="url(#fur)" stroke="#8d6a58" stroke-width="7"/>
+<ellipse cx="181" cy="177" rx="8" ry="12" fill="#59463e"/><ellipse cx="250" cy="177" rx="8" ry="12" fill="#59463e"/>
+<circle cx="184" cy="173" r="3" fill="#fff"/><circle cx="253" cy="173" r="3" fill="#fff"/>
+<path d="M211 194q9-9 18 0l-9 8z" fill="#d77f91"/><path d="M220 202q-2 13-15 13m15-13q2 13 15 13" fill="none" stroke="#8d6a58" stroke-width="4" stroke-linecap="round"/>
+<ellipse cx="163" cy="201" rx="12" ry="7" fill="#f2a9b5" opacity=".7"/><ellipse cx="277" cy="201" rx="12" ry="7" fill="#f2a9b5" opacity=".7"/>
+<path d="M173 198l-37-5m37 13-37 5m111-13 37-5m-37 13 37 5" stroke="#8d6a58" stroke-width="2.5" stroke-linecap="round"/>
+<!-- coffee cup beside cat -->
+<path d="M318 220h112l-10 117c-2 19-15 30-34 30h-24c-19 0-32-11-34-30z" fill="url(#cup)" stroke="#986a70" stroke-width="7" stroke-linejoin="round"/>
+<path d="M430 244h17c36 0 38 57 0 57h-22" fill="none" stroke="#986a70" stroke-width="13" stroke-linecap="round"/>
+<path d="M323 236h102" stroke="#fff7f6" stroke-width="8" stroke-linecap="round"/>
+<path d="M357 263c-12-15-31-1-17 14l17 17 17-17c14-15-5-29-17-14z" fill="#fff5f4"/>
+<path d="M347 205c-8-12 7-16 0-28m27 28c-8-12 7-16 0-28" fill="none" stroke="#c18c78" stroke-width="4" stroke-linecap="round"/>
+<!-- label -->
+<text x="260" y="397" text-anchor="middle" font-family="Trebuchet MS,Arial,sans-serif" font-size="21" font-weight="800" letter-spacing="1.5" fill="#805b62">MEOW MEOW CAFE</text>
 </svg>
