@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 3 | PHP_7007</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Prompt", "Tahoma", sans-serif;
+      color: #62566f;
+      background: linear-gradient(135deg, #fff1f6 0%, #f1efff 52%, #eaf8ff 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 28px 16px;
+    }
+    .container {
+      width: 100%;
+      max-width: 760px;
+      background: rgba(255,255,255,.88);
+      border: 1px solid #fff;
+      border-radius: 28px;
+      padding: 38px 30px;
+      box-shadow: 0 14px 40px rgba(132, 112, 164, .13);
+      text-align: center;
+    }
+    .tag {
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: #fce3ef;
+      color: #a65f86;
+      font-size: 14px;
+      font-weight: 700;
+    }
+    h1 { margin: 16px 0 8px; color: #826b9d; font-size: clamp(28px, 5vw, 38px); }
+    .subtitle { margin: 0 0 28px; color: #92869e; }
+    .lessons { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; }
+    .lesson {
+      display: block;
+      padding: 19px 16px;
+      border-radius: 18px;
+      text-decoration: none;
+      color: #6d5d7e;
+      background: #f5f0ff;
+      border: 1px solid #e9defb;
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .lesson:nth-child(2) { background: #fff0f5; border-color: #f8dce8; }
+    .lesson:nth-child(3) { background: #edf8ff; border-color: #d8effb; }
+    .lesson:nth-child(4) { background: #eff9f1; border-color: #d9efdf; }
+    .lesson:nth-child(5) { background: #fff7e9; border-color: #f6e8c9; }
+    .lesson:hover { transform: translateY(-3px); box-shadow: 0 8px 18px rgba(132,112,164,.12); }
+    .lesson strong { display: block; font-size: 17px; margin-bottom: 5px; }
+    .lesson span { font-size: 13px; color: #95899f; }
+    .back {
+      display: inline-block;
+      margin-top: 28px;
+      padding: 11px 20px;
+      border-radius: 999px;
+      background: #e9e2f7;
+      color: #75628f;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .back:hover { background: #ddd2f0; }
+    footer { margin-top: 22px; font-size: 12px; color: #b0a6b9; }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <span class="tag">PHP_7007 · Learning page</span>
+    <h1>🌷 Lesson 3</h1>
+    <p class="subtitle">เลือกแบบฝึกหัดที่ต้องการเรียนรู้ได้เลยค่ะ</p>
+    <nav class="lessons" aria-label="รายการแบบฝึกหัด Lesson 3">
+      <a class="lesson" href="ex1.html"><strong>📘 แบบฝึกหัดที่ 1</strong><span>เปิดบทเรียน</span></a>
+      <a class="lesson" href="ex2.html"><strong>🌸 แบบฝึกหัดที่ 2</strong><span>เปิดบทเรียน</span></a>
+      <a class="lesson" href="ex3.html"><strong>🦋 แบบฝึกหัดที่ 3</strong><span>เปิดบทเรียน</span></a>
+      <a class="lesson" href="ex4.html"><strong>🌼 แบบฝึกหัดที่ 4</strong><span>เปิดบทเรียน</span></a>
+      <a class="lesson" href="ex5.html"><strong>🎀 แบบฝึกหัดที่ 5</strong><span>เปิดบทเรียน</span></a>
+    </nav>
+    <a class="back" href="../index.html">← กลับหน้าหลัก</a>
+    <footer>Made with care · PHP_7007</footer>
+  </main>
+</body>
+</html>
