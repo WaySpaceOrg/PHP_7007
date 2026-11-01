@@ -1,12 +1,58 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="utf-8">
-  <title>ประวัติส่วนตัว</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ex 1 | ประวัติส่วนตัว · PHP_7007</title>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#563d68;--muted:#887a95;--pink:#ffe4ef;--purple:#eee8ff;--blue:#e5f4ff;--line:#f2d9ec}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;color:var(--ink);font-family:Kanit,sans-serif;background:linear-gradient(135deg,#fff9fc,#f5f0ff 55%,#fff8f2)}
+a{color:inherit;text-decoration:none}
+.page{width:min(1000px,calc(100% - 36px));margin:auto}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:22px 0}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-mark{width:50px;height:50px;display:grid;place-items:center;border-radius:17px;color:white;font:900 25px Nunito;background:linear-gradient(135deg,#9a82ec,#ff91bf);box-shadow:0 8px 18px #c7a5df66}
+.brand h1{margin:0;font:900 23px Nunito}.brand small{display:block;color:var(--muted);font-size:12px}
+.nav{display:flex;gap:9px;flex-wrap:wrap}.nav a{padding:9px 15px;border:1px solid #ead5ed;border-radius:999px;background:#ffffffbd;font-size:13px;transition:.2s}.nav a:hover{transform:translateY(-2px);background:white}
+.hero{position:relative;overflow:hidden;padding:clamp(28px,5vw,54px);border:2px solid #f7d5e9;border-radius:32px;background:linear-gradient(115deg,#ffe9f3ed,#f5edffed 58%,#fff1e9ed);box-shadow:0 15px 35px #c9a9d51c}
+.hero:after{content:'✿';position:absolute;right:6%;top:5%;font-size:90px;color:#f3b9d866;transform:rotate(15deg)}
+.eyebrow{display:inline-block;padding:6px 14px;border-radius:999px;background:#fff;color:#cf6b9d;font-size:13px}
+.hero h2{margin:15px 0 8px;font-size:clamp(32px,5vw,48px);line-height:1.25}.hero h2 span{color:#9a79d9}
+.hero p{max-width:650px;margin:0;color:#796985;font-size:15px;line-height:1.9}
+.profile{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:24px 0}
+.card{padding:25px;border:2px solid var(--line);border-radius:26px;background:#fff;box-shadow:0 8px 20px #bba6c51c;transition:.2s}
+.card:first-child{border-color:#c9e0ff;background:linear-gradient(145deg,#f0f7ff,#fff)}
+.card:last-child{border-color:#dfcffb;background:linear-gradient(145deg,#f7f1ff,#fff)}
+.card:hover{transform:translateY(-3px);box-shadow:0 12px 24px #b89ac533}
+.card-icon{width:48px;height:48px;display:grid;place-items:center;border-radius:17px;background:#fff;font-size:25px}
+.card h3{margin:16px 0 8px;font-size:21px}.card p{margin:0;color:#796d84;font-size:15px;line-height:1.8;overflow-wrap:anywhere}
+.note{padding:18px 22px;border:1px solid #f0d5e9;border-radius:22px;background:#ffffffc9;color:#796d84;font-size:14px;line-height:1.8}
+.note strong{color:#9a79d9}
+footer{padding:24px 0 30px;text-align:center;color:#9a8ba4;font:700 12px Nunito}
+@media(max-width:650px){.topbar{align-items:flex-start;flex-direction:column}.profile{grid-template-columns:1fr}.hero:after{font-size:65px;right:4%}}
+</style>
 </head>
 <body>
-  <h1>Thanyarat</h1>
-  <p>11111111111111</p>
-  <p>22222222222222</p>
+<div class="page">
+<header class="topbar">
+<a class="brand" href="../index.html"><div class="brand-mark">♡</div><div><h1>PHP_7007</h1><small>My little space to learn &amp; grow ✨</small></div></a>
+<nav class="nav" aria-label="เมนูนำทาง"><a href="../index.html">⌂ หน้าหลัก</a><a href="index.html">← Lesson 1</a></nav>
+</header>
+<main>
+<section class="hero">
+<span class="eyebrow">🌷 LESSON 01 · EXERCISE 01</span>
+<h2>ประวัติส่วนตัว<br><span>My Profile</span></h2>
+<p>ยินดีต้อนรับสู่แบบฝึกหัดที่ 1 ของบทเรียน HTML หน้านี้เป็นตัวอย่างการแสดงหัวข้อและข้อความประวัติส่วนตัว ด้วยรูปแบบที่อ่านง่ายและสีสันสดใส</p>
+</section>
+<section class="profile" aria-label="ข้อมูลประวัติส่วนตัว">
+<article class="card"><div class="card-icon">🌸</div><h3>ข้อมูลส่วนที่ 1</h3><p>Thanyarat</p><p>11111111111111</p></article>
+<article class="card"><div class="card-icon">🦋</div><h3>ข้อมูลส่วนที่ 2</h3><p>22222222222222</p></article>
+</section>
+<div class="note">✨ <strong>แบบฝึกหัดที่ 1</strong> · สามารถแก้ไขข้อความในส่วนข้อมูลให้เป็นรายละเอียดประวัติส่วนตัวของตนเองได้</div>
+</main>
+<footer>Made with ♡ · Learn · Create · Keep Growing 🌱</footer>
+</div>
 </body>
 </html>
