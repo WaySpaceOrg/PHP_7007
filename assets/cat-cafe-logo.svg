@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 260" role="img" aria-labelledby="title desc">
+<title id="title">โลโก้ร้านกาแฟแมวเหมียว</title>
+<desc id="desc">โลโก้ร้านกาแฟแมวเหมียว รูปแมวน้อยอยู่ในแก้วกาแฟ โทนสีครีม ชมพู และน้ำตาล</desc>
+<defs>
+ <linearGradient id="cup" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f6b8c9"/><stop offset="1" stop-color="#d98aa8"/></linearGradient>
+ <linearGradient id="bean" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#9b6b55"/><stop offset="1" stop-color="#6e493d"/></linearGradient>
+</defs>
+<circle cx="160" cy="122" r="112" fill="#fff4e8" stroke="#e9cbb5" stroke-width="6"/>
+<path d="M88 110h132v70c0 18-15 33-33 33h-66c-18 0-33-15-33-33z" fill="url(#cup)" stroke="#875b50" stroke-width="6" stroke-linejoin="round"/>
+<path d="M220 126h17c20 0 27 14 22 31-4 14-15 22-39 22" fill="none" stroke="#875b50" stroke-width="9" stroke-linecap="round"/>
+<path d="M115 112l8-36 31 22 15 0 31-22 8 36" fill="#f2d4b9" stroke="#875b50" stroke-width="6" stroke-linejoin="round"/>
+<path d="M122 113c0-26 17-43 38-43s38 17 38 43" fill="#f2d4b9" stroke="#875b50" stroke-width="6"/>
+<path d="M146 111q5-5 10 0M174 111q5-5 10 0" fill="none" stroke="#65463d" stroke-width="4" stroke-linecap="round"/>
+<path d="M157 122q3 4 6 0" fill="none" stroke="#c77c86" stroke-width="4" stroke-linecap="round"/>
+<path d="M160 123l-12 8m12-8 12 8" stroke="#875b50" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M145 133l-22 3m22 3-22 5m52-11 22 3m-22 3 22 5" stroke="#875b50" stroke-width="2" stroke-linecap="round"/>
+<path d="M137 54c-9-12 8-17 0-29m29 26c-9-12 8-17 0-29m29 32c-9-12 8-17 0-29" fill="none" stroke="#c28b72" stroke-width="5" stroke-linecap="round"/>
+<path d="M80 65l5 10 10 5-10 5-5 10-5-10-10-5 10-5zM240 63l4 8 8 4-8 4-4 8-4-8-8-4 8-4z" fill="#e9b56f"/>
+<text x="160" y="242" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="700" letter-spacing="1" fill="#805447">MEOW MEOW CAFE</text>
+</svg>
