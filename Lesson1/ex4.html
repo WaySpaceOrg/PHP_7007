@@ -1,17 +1,108 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ฟอร์มเข้าสู่ระบบ</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>แบบฝึกหัดที่ 4 | ฟอร์มเข้าสู่ระบบ</title>
+  <style>
+    :root {
+      --pink: #f7c8dc;
+      --purple: #d9ccff;
+      --blue: #c9e8ff;
+      --ink: #51465f;
+      --muted: #82758e;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh; padding: 42px 18px;
+      font-family: "Prompt", "Noto Sans Thai", Tahoma, sans-serif;
+      color: var(--ink);
+      background: linear-gradient(135deg, #fff0f6 0%, #f2edff 52%, #eaf7ff 100%);
+      display: grid; place-items: center;
+    }
+    .page { width: min(520px, 100%); }
+    .top { text-align: center; margin-bottom: 24px; }
+    .logo {
+      width: 76px; height: 76px; margin: 0 auto 14px;
+      display: grid; place-items: center; border-radius: 25px;
+      background: linear-gradient(135deg, var(--pink), var(--purple), var(--blue));
+      box-shadow: 0 10px 24px rgba(135,112,168,.18); font-size: 35px;
+    }
+    .eyebrow { color: #9b82b4; font-size: .88rem; font-weight: 700; letter-spacing: .08em; }
+    h1 { margin: 8px 0; font-size: clamp(1.65rem, 5vw, 2.2rem); }
+    .subtitle { margin: 0; color: var(--muted); }
+    .card {
+      padding: clamp(24px, 6vw, 38px); border-radius: 27px;
+      background: rgba(255,255,255,.9); border: 1px solid rgba(255,255,255,.95);
+      box-shadow: 0 18px 45px rgba(115,99,145,.13);
+    }
+    .card h2 { margin: 0 0 7px; font-size: 1.3rem; }
+    .help { margin: 0 0 24px; color: var(--muted); font-size: .93rem; }
+    .field { margin-bottom: 18px; }
+    label { display: block; margin-bottom: 8px; font-weight: 700; }
+    input {
+      width: 100%; padding: 14px 15px; border-radius: 14px;
+      border: 1.5px solid #e7ddef; background: #fdfbff;
+      color: var(--ink); font: inherit; outline: none;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    input:focus { border-color: #b99de0; box-shadow: 0 0 0 4px rgba(217,204,255,.42); }
+    input::placeholder { color: #b3a8bc; }
+    .submit {
+      width: 100%; border: 0; border-radius: 999px; padding: 14px 20px;
+      margin-top: 5px; color: #594b6b; font: inherit; font-weight: 700;
+      background: linear-gradient(100deg, #f8d8e7, #e2d9ff, #d9efff);
+      box-shadow: 0 7px 17px rgba(135,112,168,.16); cursor: pointer;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .submit:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(135,112,168,.2); }
+    .notice {
+      margin: 18px 0 0; padding: 12px 14px; border-radius: 13px;
+      background: #f5f0ff; color: #78688d; font-size: .85rem; line-height: 1.6;
+    }
+    .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 11px; margin-top: 23px; }
+    .link {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 11px 18px; border-radius: 999px; text-decoration: none;
+      color: #594b6b; font-weight: 700; background: #fff;
+      border: 1px solid #eadff5; transition: transform .2s;
+    }
+    .link.primary { background: linear-gradient(100deg, #f8d8e7, #e2d9ff); border: 0; }
+    .link:hover { transform: translateY(-2px); }
+    footer { text-align: center; color: #9a8ca6; font-size: .85rem; margin-top: 23px; }
+  </style>
 </head>
 <body>
-    <form action="" method="POST">
-  <label>email</label>
-  <input type="email" name="email">
-  <label>password</label>
-	<input type="password">
-  <button type="submit">ส่งฟอร์ม</button>
-</form>
+  <main class="page">
+    <header class="top">
+      <div class="logo" aria-hidden="true">🔐</div>
+      <div class="eyebrow">PHP LEARNING • LESSON 1</div>
+      <h1>แบบฝึกหัดที่ 4</h1>
+      <p class="subtitle">การสร้างฟอร์มเข้าสู่ระบบด้วย HTML</p>
+    </header>
+
+    <section class="card">
+      <h2>ยินดีต้อนรับ ♡</h2>
+      <p class="help">ตัวอย่างแบบฟอร์มเข้าสู่ระบบ</p>
+      <form action="" method="POST">
+        <div class="field">
+          <label for="email">อีเมล</label>
+          <input id="email" type="email" name="email" placeholder="กรอกอีเมลตัวอย่าง" autocomplete="email">
+        </div>
+        <div class="field">
+          <label for="password">รหัสผ่าน</label>
+          <input id="password" type="password" name="password" placeholder="กรอกรหัสผ่านตัวอย่าง" autocomplete="current-password">
+        </div>
+        <button class="submit" type="submit">ส่งฟอร์ม ✨</button>
+      </form>
+      <p class="notice">หมายเหตุ: หน้านี้จัดทำเพื่อฝึกสร้างฟอร์ม HTML เท่านั้น ยังไม่มีระบบตรวจสอบบัญชีผู้ใช้หรือบันทึกข้อมูลจริง</p>
+      <nav class="actions" aria-label="เมนูนำทาง">
+        <a class="link primary" href="../index.html">⌂ กลับหน้าหลัก</a>
+        <a class="link" href="index.html">← กลับ Lesson 1</a>
+        <a class="link" href="ex3.html">แบบฝึกหัดก่อนหน้า</a>
+      </nav>
+    </section>
+    <footer>Made with pastel colors ♡ PHP Learning</footer>
+  </main>
 </body>
 </html>
