@@ -1,18 +1,112 @@
-<button id="like">❤️ ถูกใจ</button>
-<span id="count">0</span>
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>แบบฝึกหัดที่ 3 · ปุ่มกดถูกใจ | PHP_7007</title>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#563d68;--muted:#887a95;--pink:#ff91bf;--purple:#9a82ec}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;color:var(--ink);font-family:Kanit,sans-serif;background:linear-gradient(135deg,#fff9fc,#f5f0ff 55%,#fff8f2)}
+a{color:inherit;text-decoration:none}.page{width:min(1080px,calc(100% - 36px));margin:auto}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:22px 0;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px}.brand-mark{width:52px;height:52px;display:grid;place-items:center;border-radius:18px;color:white;font:900 25px Nunito;background:linear-gradient(135deg,#9a82ec,#ff91bf);box-shadow:0 8px 18px #c7a5df66}
+.brand h1{margin:0;font:900 23px Nunito}.brand small{display:block;color:var(--muted);font-size:12px}
+.nav{display:flex;gap:9px;flex-wrap:wrap}.nav a,.btn{padding:9px 15px;border:1px solid #ead5ed;border-radius:999px;background:#ffffffdf;font-size:13px;transition:.2s}
+.nav a:hover,.btn:hover{transform:translateY(-2px);box-shadow:0 8px 18px #b89ac533}
+.hero{position:relative;overflow:hidden;padding:clamp(30px,5vw,52px);border:2px solid #f7d5e9;border-radius:32px;background:linear-gradient(115deg,#ffe9f3ed,#f5edffed 58%,#fff1e9ed);box-shadow:0 15px 35px #c9a9d51c}
+.hero:after{content:'✿';position:absolute;right:5%;top:5%;font-size:90px;color:#f3b9d866;transform:rotate(15deg)}
+.eyebrow{display:inline-block;padding:6px 14px;border-radius:999px;background:#fff;color:#cf6b9d;font-size:13px}
+.hero h2{position:relative;z-index:1;margin:15px 0 8px;font-size:clamp(30px,5vw,46px);line-height:1.2}.hero h2 span{color:#9a79d9}
+.hero p{position:relative;z-index:1;max-width:680px;margin:0;color:#796985;font-size:15px;line-height:1.9}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:30px 2px 15px}.section-head h3{margin:0;font-size:23px}.section-head p{margin:0;color:var(--muted);font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:17px}.card{padding:22px;border:2px solid #f2d9ec;border-radius:25px;background:#ffffffdf;box-shadow:0 9px 24px #bba6c51c}
+.card.pink{background:#fff2f7;border-color:#ffd7e7}.card.purple{background:#f6f1ff;border-color:#e3d8fb}
+.card h3{margin:0 0 8px;font-size:19px}.card p{margin:0;color:#796d84;font-size:14px;line-height:1.8}
+.icon{width:42px;height:42px;display:grid;place-items:center;border-radius:14px;background:#fff;font-size:22px;margin-bottom:10px}
+.demo{margin-top:18px;padding:clamp(22px,4vw,34px);border:2px solid #e5dafa;border-radius:28px;background:#fff;text-align:center;box-shadow:0 9px 24px #bba6c51c}
+.demo h3{margin:0 0 8px;font-size:23px}.demo>p{margin:0;color:#887a95;font-size:14px}
+.like-button{display:inline-flex;align-items:center;justify-content:center;gap:10px;margin:24px 0 14px;padding:15px 28px;border:0;border-radius:999px;background:linear-gradient(100deg,#ff8fba,#ec83b4);color:#fff;font:700 18px Kanit;cursor:pointer;box-shadow:0 9px 20px #ed91bc55;transition:transform .18s,box-shadow .18s}
+.like-button:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 12px 24px #ed91bc77}.like-button:active{transform:scale(.97)}
+.count-wrap{width:min(260px,100%);margin:0 auto;padding:18px;border:1px solid #e8dcfa;border-radius:20px;background:linear-gradient(135deg,#fff3f8,#f4efff)}
+.count{display:block;color:#936fd0;font:900 48px Nunito;line-height:1.2}.count-label{color:#897a96;font-size:13px}
+.message{min-height:28px;margin:15px 0 0!important;color:#9a70bd!important;font-weight:500}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.btn{display:inline-flex;align-items:center;justify-content:center;cursor:pointer;color:#8064b7;font:600 14px Kanit}
+.btn.primary{border:0;background:linear-gradient(100deg,#9b83e8,#ed8dbb);color:white;box-shadow:0 7px 16px #c7a5df55;padding:11px 19px}
+.code{margin-top:18px;padding:22px;border:2px solid #e5dafa;border-radius:25px;background:#fff;box-shadow:0 9px 24px #bba6c51c}
+.code h3{margin:0 0 13px;font-size:20px}pre{margin:0;padding:18px;overflow:auto;border-radius:16px;background:#352d45;color:#f8efff;font:14px/1.9 Consolas,monospace}
+.note{margin:12px 0 0;color:#8b7b99;font-size:13px;line-height:1.8}
+footer{padding:25px 0 30px;text-align:center;color:#9a8ba4;font:700 12px Nunito}
+@media(max-width:700px){.topbar{align-items:flex-start}.nav a{font-size:12px;padding:8px 11px}.grid{grid-template-columns:1fr}.section-head{display:block}.section-head p{margin-top:5px}}
+</style>
+</head>
+<body>
+<div class="page">
+<header class="topbar">
+<a class="brand" href="../index.html"><div class="brand-mark">♡</div><div><h1>PHP_7007</h1><small>My little space to learn &amp; grow ✨</small></div></a>
+<nav class="nav" aria-label="เมนูหลัก"><a href="../index.html">⌂ หน้าหลัก</a><a href="index.html">📚 Lesson 3</a><a href="../Lesson1/">🌷 Lesson 1</a><a href="../Lesson2/">🎀 Lesson 2</a></nav>
+</header>
+<main>
+<section class="hero">
+<span class="eyebrow">🦋 LESSON 03 · EXERCISE 03</span>
+<h2>ปุ่มกด <span>ถูกใจ</span> 💗</h2>
+<p>ฝึกใช้ JavaScript จัดการเหตุการณ์คลิก (click event) และตัวแปร let เพื่อเพิ่มจำนวนการกดถูกใจ พร้อมตรวจสอบเงื่อนไขด้วย if...else</p>
+</section>
+<div class="section-head"><div><h3>🌷 สิ่งที่จะได้เรียนรู้</h3><p>ฝึกเขียนคำสั่งให้หน้าเว็บตอบสนองต่อการคลิก</p></div><span>📖 💜</span></div>
+<section class="grid">
+<article class="card pink"><div class="icon">👆</div><h3>Event Listener</h3><p>ใช้ addEventListener("click", ...) เพื่อสั่งให้โปรแกรมทำงานเมื่อผู้ใช้กดปุ่ม</p></article>
+<article class="card purple"><div class="icon">🔢</div><h3>ตัวแปรและเงื่อนไข</h3><p>ใช้ let เก็บจำนวนครั้งที่กด และใช้ if...else ตรวจสอบว่าจำนวนครบ 10 ครั้งหรือยัง</p></article>
+</section>
+<section class="demo">
+<h3>🎀 ทดลองกดปุ่มถูกใจ</h3>
+<p>กดปุ่มด้านล่างเพื่อเพิ่มจำนวนถูกใจ ลองกดให้ครบ 10 ครั้งนะคะ!</p>
+<button class="like-button" id="like" type="button">❤️ ถูกใจ</button>
+<div class="count-wrap"><span class="count" id="count" aria-live="polite">0</span><span class="count-label">ครั้งที่กดถูกใจ</span></div>
+<p class="message" id="message" aria-live="polite">เริ่มกดถูกใจได้เลย ✨</p>
+<div class="actions" style="justify-content:center"><button class="btn" id="reset" type="button">เริ่มนับใหม่ ↻</button></div>
+</section>
+<section class="code">
+<h3>💻 ตัวอย่างโค้ด JavaScript</h3>
+<pre><code>let likes = 0;
+const btn = document.getElementById("like");
 
+btn.addEventListener("click", function () {
+  likes = likes + 1;
+  document.getElementById("count").textContent = likes;
+
+  if (likes >= 10) {
+    console.log("ยอดนิยมแล้ว!");
+  } else {
+    console.log("อีก " + (10 - likes) + " ครั้ง");
+  }
+});</code></pre>
+<p class="note">💡 addEventListener ช่วยให้เรากำหนดการทำงานเมื่อเกิดเหตุการณ์ต่าง ๆ เช่น การคลิกปุ่ม ส่วน if...else ใช้เลือกทำงานตามเงื่อนไข</p>
+</section>
+<nav class="actions" aria-label="ลิงก์ไปยังหน้าอื่น"><a class="btn primary" href="index.html">← กลับเมนู Lesson 3</a><a class="btn" href="../index.html">⌂ กลับหน้าหลัก</a><a class="btn" href="ex2.html">← แบบฝึกหัดที่ 2</a><a class="btn" href="ex4.html">แบบฝึกหัดถัดไป →</a></nav>
+</main>
+<footer>Made with ♡ · Learn · Create · Keep Growing 🌱</footer>
+</div>
 <script>
-    let likes = 0;
-    const btn = document.getElementById("like");
-
-    btn.addEventListener("click", function () {
-        likes = likes + 1;
-        document.getElementById("count").textContent = likes;
-
-        if (likes >= 10) {
-            console.log("ยอดนิยมแล้ว!");
-        } else {
-            console.log("อีก " + (10 - likes) + " ครั้ง");
-        }
-    });
+let likes = 0;
+const likeButton = document.getElementById("like");
+const countElement = document.getElementById("count");
+const messageElement = document.getElementById("message");
+likeButton.addEventListener("click", function () {
+  likes = likes + 1;
+  countElement.textContent = likes;
+  if (likes >= 10) {
+    messageElement.textContent = "🎉 ยอดนิยมแล้ว! ขอบคุณสำหรับทุกการถูกใจ";
+    console.log("ยอดนิยมแล้ว!");
+  } else {
+    messageElement.textContent = "อีก " + (10 - likes) + " ครั้ง จะครบ 10 ครั้งแล้ว 💕";
+    console.log("อีก " + (10 - likes) + " ครั้ง");
+  }
+});
+document.getElementById("reset").addEventListener("click", function () {
+  likes = 0;
+  countElement.textContent = likes;
+  messageElement.textContent = "เริ่มกดถูกใจได้เลย ✨";
+});
 </script>
+</body>
+</html>
