@@ -1,42 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>เมนูอาหาร</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>เมนูอาหารและเครื่องดื่ม | PHP_7007</title>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#563d68;--muted:#887a95;--pink:#ff8fbd;--purple:#9a82ec;--line:#f2d9ec}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;color:var(--ink);font-family:Kanit,sans-serif;background:linear-gradient(135deg,#fff8fc,#f3efff 52%,#fff7ef)}
+a{color:inherit;text-decoration:none}
+.page{width:min(1120px,calc(100% - 36px));margin:auto}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:20px 0;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-mark{width:52px;height:52px;display:grid;place-items:center;border-radius:18px;color:white;font:900 26px Nunito;background:linear-gradient(135deg,#9a82ec,#ff91bf);box-shadow:0 8px 18px #c7a5df66}
+.brand h1{margin:0;font:900 23px Nunito}.brand small{display:block;color:var(--muted);font-size:12px}
+.nav{display:flex;gap:9px;flex-wrap:wrap}
+.nav a{padding:9px 15px;border:1px solid #ead5ed;border-radius:999px;background:#ffffffd9;font-size:14px;transition:.2s}
+.nav a:hover{transform:translateY(-2px);box-shadow:0 8px 18px #b89ac533}
+.hero{position:relative;overflow:hidden;text-align:center;padding:clamp(30px,5vw,48px) 22px;border:2px solid #f7d5e9;border-radius:30px;background:linear-gradient(115deg,#ffe7f2,#f1eaff 58%,#fff0e6);box-shadow:0 15px 35px #c9a9d51c}
+.eyebrow{display:inline-block;padding:6px 14px;border-radius:999px;background:#fff;color:#cf6b9d;font-size:13px}
+.hero h2{margin:13px 0 5px;font-size:clamp(32px,5vw,48px);line-height:1.2;color:#68456f}
+.hero h2 span{color:#9876d6}.hero p{margin:8px auto 0;max-width:620px;color:#796985;line-height:1.8}
+.decor{position:absolute;font-size:52px;opacity:.2}.decor.left{left:5%;top:18%}.decor.right{right:6%;bottom:12%}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:30px 2px 15px}
+.section-head h3{margin:0;font-size:24px}.section-head p{margin:0;color:var(--muted);font-size:13px}
+.menu-card{overflow:hidden;padding:clamp(16px,3vw,28px);border:2px solid #f2d9ec;border-radius:28px;background:#ffffffdf;box-shadow:0 12px 28px #bba6c51c}
+.table-wrap{overflow-x:auto;border-radius:19px}
+table{width:100%;border-collapse:separate;border-spacing:0;text-align:center;min-width:420px;background:#fff}
+caption{padding:0 0 18px;font-size:20px;font-weight:700;color:#805db5}
+thead th{padding:16px 12px;color:#fff;font-size:16px;background:linear-gradient(110deg,#9b83e8,#e58dbb)}
+thead th:first-child{border-radius:15px 0 0 0}thead th:last-child{border-radius:0 15px 0 0}
+tbody td{padding:15px 12px;border-bottom:1px solid #f2e6f3;font-size:16px}
+tbody tr:nth-child(odd){background:#fff4f9}tbody tr:nth-child(even){background:#f7f3ff}
+tbody tr:hover{background:#edf6ff}
+tbody td:first-child{font-weight:600;text-align:left;padding-left:clamp(15px,4vw,34px);color:#76548b}
+.price{display:inline-block;min-width:48px;padding:5px 12px;border-radius:999px;background:#fff;color:#a15f98;font-weight:700;box-shadow:0 2px 7px #d8c5df55}
+tfoot td{padding:16px 12px;background:linear-gradient(100deg,#f4e7ff,#ffe8f2);color:#805db5;font-weight:600;border-radius:0 0 14px 14px}
+.note{margin-top:17px;padding:15px 18px;border:1px dashed #e7c8e8;border-radius:18px;background:#fff8fd;color:#806b91;line-height:1.8}
+.note strong{color:#bd6d9e}
+.bottom-links{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:24px 0}
+.bottom-links a{padding:10px 18px;border-radius:999px;background:#fff;border:1px solid #ead5ed;color:#8968bd;font-weight:600;transition:.2s}
+.bottom-links a:hover{transform:translateY(-2px);box-shadow:0 8px 18px #b89ac533}
+footer{padding:20px 0 28px;text-align:center;color:#9a8ba4;font:700 12px Nunito}
+@media(max-width:760px){.topbar{align-items:flex-start}.nav a{font-size:12px;padding:8px 11px}.section-head{display:block}.section-head p{margin-top:5px}.hero{padding:30px 16px}.decor{font-size:34px}}
+</style>
 </head>
 <body>
-    <table>
-    <caption>เมนูอาหาร</caption>
-    <thead>
-        <tr>
-            <!-- หัวตาราง 3 ช่อง -->
-          <th>เมนู</th>
-          <th>ร้อน</th>
-          <th>เย็ฯ</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr><td>ลาเต้</td><td>50</td><td>60</td></tr>
-        <!-- เพิ่มอีกอย่างน้อย 3 แถว หนึ่งในนั้นคือน้ำเปล่า -->
-      	<tr>
-          <td>น้ำเปล่า</td>
-          <td colspan="2">10</td>
-        </tr>
-      	<tr>
-          <td>คาปูชิโน่</td>
-          <td>60</td>
-          <td>70</td>
-        </tr>
-      	<tr>
-          <td>อเมริกาโน่</td>
-          <td>30</td>
-          <td>50</td>
-        </tr>
-    </tbody>
-    <!-- tfoot -->
-  <tfoot><tr><td colspan="3"> เพิ่มช็อตกาแฟ = 15 บาท</td></tr> </tfoot>
+<div class="page">
+<header class="topbar">
+<a class="brand" href="../index.html"><div class="brand-mark">♡</div><div><h1>PHP_7007</h1><small>My little space to learn &amp; grow ✨</small></div></a>
+<nav class="nav" aria-label="เมนูหลัก"><a href="../index.html">⌂ หน้าหลัก</a><a href="index.html">📚 Lesson 2</a><a href="../Lesson1/">🌷 Lesson 1</a><a href="../lesson3/">🦋 Lesson 3</a></nav>
+</header>
+<main>
+<section class="hero"><span class="decor left">☕</span><span class="decor right">✿</span><span class="eyebrow">🎀 LESSON 02 · EXERCISE 02</span><h2>เมนูอาหารและ<span>เครื่องดื่ม</span> ♡</h2><p>ตารางเมนูแสนสดใส รวมราคาเครื่องดื่มทั้งแบบร้อนและแบบเย็น เลือกเมนูโปรดได้เลยค่ะ</p></section>
+<div class="section-head"><div><h3>🌸 Our Menu</h3><p>รายการเครื่องดื่มและราคาของแต่ละเมนู</p></div><span>🧋 ✨</span></div>
+<section class="menu-card">
+<div class="table-wrap">
+<table>
+<caption>☕ เมนูเครื่องดื่มประจำร้าน ☕</caption>
+<thead><tr><th scope="col">เมนู</th><th scope="col">ร้อน (บาท)</th><th scope="col">เย็น (บาท)</th></tr></thead>
+<tbody>
+<tr><td>ลาเต้</td><td><span class="price">50</span></td><td><span class="price">60</span></td></tr>
+<tr><td>น้ำเปล่า</td><td colspan="2"><span class="price">10</span></td></tr>
+<tr><td>คาปูชิโน่</td><td><span class="price">60</span></td><td><span class="price">70</span></td></tr>
+<tr><td>อเมริกาโน่</td><td><span class="price">30</span></td><td><span class="price">50</span></td></tr>
+</tbody>
+<tfoot><tr><td colspan="3">♡ เพิ่มช็อตกาแฟ = 15 บาท ♡</td></tr></tfoot>
 </table>
-
+</div>
+<div class="note">✨ <strong>หมายเหตุ:</strong> ราคาทั้งหมดแสดงเป็นเงินบาท และเมนูน้ำเปล่ามีราคาเดียวทั้งแบบร้อนและเย็น</div>
+</section>
+<div class="bottom-links"><a href="ex1.html">← แบบฝึกหัดที่ 1</a><a href="index.html">กลับหน้า Lesson 2</a><a href="../index.html">กลับหน้าหลัก ⌂</a></div>
+</main>
+<footer>Made with ♡ · Learn · Create · Keep Growing 🌱</footer>
+</div>
 </body>
 </html>
