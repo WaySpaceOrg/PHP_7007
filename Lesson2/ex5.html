@@ -1,42 +1,80 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <title>ร้านกาแฟแมวเหมียว</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>แผนผังเว็บไซต์คาเฟ่แมวเหมียว | PHP_7007</title>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#563d68;--muted:#887a95;--pink:#ff8fbd;--purple:#9a82ec;--line:#f2d9ec}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;color:var(--ink);font-family:Kanit,sans-serif;background:linear-gradient(135deg,#fff8fc,#f3efff 52%,#fff7ef)}
+a{color:inherit;text-decoration:none}.page{width:min(1080px,calc(100% - 36px));margin:auto}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:20px 0;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px}.brand-mark{width:52px;height:52px;display:grid;place-items:center;border-radius:18px;color:#fff;font:900 26px Nunito;background:linear-gradient(135deg,#9a82ec,#ff91bf);box-shadow:0 8px 18px #c7a5df66}
+.brand h1{margin:0;font:900 23px Nunito}.brand small{display:block;color:var(--muted);font-size:12px}
+.nav{display:flex;gap:9px;flex-wrap:wrap}.nav a,.link-pill{padding:9px 15px;border:1px solid #ead5ed;border-radius:999px;background:#ffffffdf;font-size:14px;transition:.2s}
+.nav a:hover,.link-pill:hover{transform:translateY(-2px);box-shadow:0 8px 18px #b89ac533}
+.hero{position:relative;overflow:hidden;text-align:center;padding:clamp(32px,5vw,52px) 22px;border:2px solid #f7d5e9;border-radius:30px;background:linear-gradient(115deg,#ffe7f2,#f1eaff 58%,#fff0e6);box-shadow:0 15px 35px #c9a9d51c}
+.eyebrow{display:inline-block;padding:6px 14px;border-radius:999px;background:#fff;color:#cf6b9d;font-size:13px}
+.hero h2{margin:13px 0 5px;font-size:clamp(32px,5vw,48px);line-height:1.2;color:#68456f}.hero h2 span{color:#9876d6}
+.hero p{margin:8px auto 0;max-width:680px;color:#796985;line-height:1.9}
+.decor{position:absolute;font-size:52px;opacity:.2}.decor.left{left:5%;top:16%}.decor.right{right:6%;bottom:12%}
+.intro{margin:25px 0 16px;padding:18px 21px;border:1px solid #efd8ed;border-radius:20px;background:#ffffffd9;color:#806b91;line-height:1.8}
+.intro strong{color:#bd6d9e}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:28px 2px 15px}.section-head h3{margin:0;font-size:23px}.section-head p{margin:0;color:var(--muted);font-size:13px}
+.sitemap-card{padding:clamp(18px,3vw,30px);border:2px solid var(--line);border-radius:28px;background:#ffffffdf;box-shadow:0 12px 28px #bba6c51c}
+.tree{max-width:760px;margin:auto}.tree ul{list-style:none;margin:0;padding:0 0 0 34px;position:relative}
+.tree>ul{padding-left:0}.tree ul ul{margin-left:17px;border-left:2px solid #e6cbea}
+.tree li{position:relative;padding:9px 0 9px 22px}
+.tree ul ul>li:before{content:"";position:absolute;left:0;top:27px;width:20px;border-top:2px solid #e6cbea}
+.node{display:inline-flex;align-items:center;gap:10px;max-width:100%;padding:12px 17px;border:1px solid #eadcf1;border-radius:15px;background:#fff;color:#76548b;box-shadow:0 4px 12px #bba6c51a;transition:.2s}
+.node:hover{transform:translateX(4px);border-color:#d7b8e9;box-shadow:0 7px 16px #bba6c533}
+.node.root{background:linear-gradient(100deg,#9b83e8,#ed8dbb);border:0;color:#fff;font-weight:600}
+.node.primary{background:#fff0f7;border-color:#f3cfe1}.node.secondary{background:#f5f0ff;border-color:#dfd2f5}
+.node .ico{font-size:20px}.node small{display:block;color:#9a829f;font-size:11px;font-weight:400}.node.root small{color:#fff0fa}
+.branches{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:24px auto 0;max-width:760px}
+.branch{padding:16px;border-radius:18px;background:linear-gradient(135deg,#fff4f9,#f5f0ff);border:1px solid #ecd9ef}
+.branch strong{display:block;color:#805b91;margin-bottom:5px}.branch p{margin:0;color:#8c7a97;font-size:13px;line-height:1.7}
+.quick-links{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:24px 0}
+.link-pill{color:#8968bd;font-weight:600}
+footer{padding:20px 0 28px;text-align:center;color:#9a8ba4;font:700 12px Nunito}
+@media(max-width:650px){.topbar{align-items:flex-start}.nav a{font-size:12px;padding:8px 11px}.section-head{display:block}.section-head p{margin-top:5px}.tree ul{padding-left:23px}.tree ul ul{margin-left:8px}.node{padding:10px 12px;font-size:14px}.branches{grid-template-columns:1fr}.decor{font-size:33px}}
+</style>
 </head>
 <body>
-    <header>
-        <h1>ร้านกาแฟแมวเหมียว</h1>
-        <!-- 1. เมนูหลัก nav#main-nav -->
-        <nav id="main-nav">
-            <a href="menu.html">เมนู</a>
-            <a href="cats.html">แมวประจำร้าน</a>
-            <a href="contact.html">ติดต่อ</a>
-        </nav>
-    </header>
-
-    <main>
-        <p>กาแฟดี แมวน่ารัก เปิดทุกวัน 9 โมงถึง 6 โมงเย็น</p>
-    </main>
-
-    <footer>
-        <!-- 2. site map ทั้งต้นไม้ nav#sitemap -->
-        <nav id="sitemap">
-            <ul>
-                <li><a href="index.html">หน้าแรก</a>
-                    <ul>
-                        <li><a href="menu.html">เมนู</a>
-                            <ul>
-                                <li><a href="menu.html#drinks">เครื่องดื่ม</a></li>
-                                <li><a href="menu.html#bakery">ขนม</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="cats.html">แมวประจำร้าน</a></li>
-                        <li><a href="contact.html">ติดต่อ</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-    </footer>
+<div class="page">
+<header class="topbar">
+<a class="brand" href="../index.html"><div class="brand-mark">♡</div><div><h1>PHP_7007</h1><small>My little space to learn &amp; grow ✨</small></div></a>
+<nav class="nav" aria-label="เมนูหลัก"><a href="../index.html">⌂ หน้าหลัก</a><a href="index.html">📚 Lesson 2</a><a href="../Lesson1/">🌷 Lesson 1</a><a href="../lesson3/">🦋 Lesson 3</a></nav>
+</header>
+<main>
+<section class="hero"><span class="decor left">🐾</span><span class="decor right">✿</span><span class="eyebrow">🎀 LESSON 02 · EXERCISE 05</span><h2>แผนผัง<span>เว็บไซต์</span> ♡</h2><p>รวมโครงสร้างหน้าเว็บคาเฟ่แมวเหมียวไว้ในแผนผังเดียว ช่วยให้เห็นลำดับเมนูและเข้าถึงเนื้อหาแต่ละส่วนได้ง่ายขึ้น</p></section>
+<div class="intro">☕ <strong>ยินดีต้อนรับสู่ร้านกาแฟแมวเหมียว</strong> กาแฟดี แมวน่ารัก เปิดทุกวัน 09.00–18.00 น. เลือกดูเมนูและข้อมูลของร้านได้จากแผนผังด้านล่างเลยค่ะ</div>
+<div class="section-head"><div><h3>🌸 Site Map</h3><p>โครงสร้างเมนูหลักและเมนูย่อยของเว็บไซต์</p></div><span>🗺️ ✨</span></div>
+<section class="sitemap-card">
+<nav id="sitemap" class="tree" aria-label="แผนผังเว็บไซต์">
+<ul>
+<li><a class="node root" href="ex5.html"><span class="ico">🏠</span><span>หน้าแรก<small>คาเฟ่แมวเหมียว</small></span></a>
+<ul>
+<li><a class="node primary" href="ex2.html"><span class="ico">☕</span><span>เมนู<small>เครื่องดื่มและขนม</small></span></a>
+<ul><li><a class="node secondary" href="ex2.html"><span class="ico">🧋</span><span>เครื่องดื่ม<small>ดูรายการเมนูและราคา</small></span></a></li>
+<li><a class="node secondary" href="ex2.html"><span class="ico">🧁</span><span>ขนม<small>รายการขนมในร้าน</small></span></a></li></ul>
+</li>
+<li><a class="node primary" href="ex4.html#cats"><span class="ico">🐱</span><span>แมวประจำร้าน<small>สมาชิกแมวเหมียวทั้ง 8 ตัว</small></span></a></li>
+<li><a class="node primary" href="ex4.html#contact"><span class="ico">💌</span><span>ติดต่อ<small>โทรศัพท์ อีเมล และแผนที่</small></span></a></li>
+</ul>
+</li>
+</ul>
+</nav>
+<div class="branches">
+<div class="branch"><strong>☕ เมนูอาหารและเครื่องดื่ม</strong><p>เลือกดูตารางเมนูและราคาได้ที่แบบฝึกหัดที่ 2</p></div>
+<div class="branch"><strong>🐾 แมวและข้อมูลร้าน</strong><p>ดูข้อมูลสมาชิกแมวและช่องทางติดต่อได้ที่แบบฝึกหัดที่ 4</p></div>
+</div>
+</section>
+<div class="quick-links"><a class="link-pill" href="ex4.html">← คาเฟ่แมวเหมียว</a><a class="link-pill" href="index.html">กลับหน้า Lesson 2</a><a class="link-pill" href="../index.html">กลับหน้าหลัก ⌂</a></div>
+</main>
+<footer>Made with ♡ · Learn · Create · Keep Growing 🌱</footer>
+</div>
 </body>
 </html>
