@@ -1,29 +1,89 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <title>บ้านแมวเหมียว</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>บ้านแมวเหมียว | PHP_7007</title>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#563d68;--muted:#887a95;--pink:#ff8fbd;--purple:#9a82ec;--line:#f2d9ec}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;color:var(--ink);font-family:Kanit,sans-serif;background:linear-gradient(135deg,#fff8fc,#f3efff 52%,#fff7ef)}
+a{color:inherit;text-decoration:none}.page{width:min(1080px,calc(100% - 36px));margin:auto}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:20px 0;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px}.brand-mark{width:52px;height:52px;display:grid;place-items:center;border-radius:18px;color:#fff;font:900 26px Nunito;background:linear-gradient(135deg,#9a82ec,#ff91bf);box-shadow:0 8px 18px #c7a5df66}
+.brand h1{margin:0;font:900 23px Nunito}.brand small{display:block;color:var(--muted);font-size:12px}
+.nav{display:flex;gap:9px;flex-wrap:wrap}.nav a,.pill{padding:9px 15px;border:1px solid #ead5ed;border-radius:999px;background:#ffffffdf;font-size:14px;transition:.2s}
+.nav a:hover,.pill:hover{transform:translateY(-2px);box-shadow:0 8px 18px #b89ac533}
+.hero{position:relative;overflow:hidden;text-align:center;padding:clamp(32px,5vw,54px) 22px;border:2px solid #f7d5e9;border-radius:30px;background:linear-gradient(115deg,#ffe7f2,#f1eaff 58%,#fff0e6);box-shadow:0 15px 35px #c9a9d51c}
+.eyebrow{display:inline-block;padding:6px 14px;border-radius:999px;background:#fff;color:#cf6b9d;font-size:13px}
+.hero h2{margin:13px 0 5px;font-size:clamp(32px,5vw,48px);line-height:1.2;color:#68456f}.hero h2 span{color:#9876d6}
+.hero p{margin:8px auto 0;max-width:680px;color:#796985;line-height:1.9}
+.decor{position:absolute;font-size:48px;opacity:.22}.decor.left{left:6%;top:18%}.decor.right{right:7%;bottom:12%}
+.welcome{margin:24px 0;padding:17px 21px;border:1px solid #efd8ed;border-radius:20px;background:#ffffffd9;color:#806b91;line-height:1.8}
+.welcome strong{color:#bd6d9e}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:28px 2px 15px}.section-head h3{margin:0;font-size:23px}.section-head p{margin:0;color:var(--muted);font-size:13px}
+.content-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.card{padding:clamp(19px,3vw,27px);border:2px solid var(--line);border-radius:26px;background:#ffffffdf;box-shadow:0 12px 28px #bba6c51c}
+.photo-card{background:linear-gradient(145deg,#fff0f7,#f5f0ff);border-color:#efdaef;text-align:center}
+.cat-photo{display:grid;place-items:center;min-height:210px;margin:14px 0;padding:18px;border:2px dashed #e5c9e8;border-radius:22px;background:#ffffffa8}
+.cat-photo img{max-width:100%;max-height:230px;object-fit:contain;border-radius:16px}
+.photo-fallback{font-size:76px}
+.card h3{margin:0 0 8px;font-size:22px;color:#76548b}.card p{margin:0;color:#81738d;line-height:1.8}
+.health-note{display:inline-block;margin-top:12px;padding:7px 13px;border-radius:999px;background:#e9f8ef;color:#4c9a70;font-size:13px}
+.traits{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:17px}
+.trait{padding:14px 8px;text-align:center;border:1px solid #eadcf1;border-radius:17px;background:#fff}
+.trait span{display:block;font-size:25px}.trait strong{font-size:14px;color:#805b91}
+.adopt{margin-top:20px;background:linear-gradient(135deg,#fff,#fff8fc)}
+.adopt h3{margin-bottom:5px}.adopt form{display:grid;gap:10px;margin-top:16px}
+label{font-size:14px;color:#765b85}input{width:100%;padding:12px 14px;border:1px solid #e6d4ed;border-radius:13px;background:#fff;font:inherit;color:var(--ink);outline:none}
+input:focus{border-color:#b69be8;box-shadow:0 0 0 3px #eee7ff}
+button{justify-self:start;padding:11px 20px;border:0;border-radius:999px;background:linear-gradient(100deg,#9b83e8,#ed8dbb);color:#fff;font:600 15px Kanit;cursor:pointer;box-shadow:0 7px 16px #c7a5df55}
+.note{margin-top:12px!important;font-size:12px;color:#9a8ba4!important}
+.quick-links{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:25px 0}
+.pill{color:#8968bd;font-weight:600}
+footer{padding:20px 0 28px;text-align:center;color:#9a8ba4;font:700 12px Nunito}
+@media(max-width:700px){.topbar{align-items:flex-start}.nav a{font-size:12px;padding:8px 11px}.content-grid{grid-template-columns:1fr}.section-head{display:block}.section-head p{margin-top:5px}.traits{gap:7px}.trait{padding:12px 5px}}
+</style>
 </head>
 <body>
-    <h1>บ้านแมวเหมียว</h1>
-
-    <h2>แมวของเรา</h2>
-    <img src="cat.jpg" alt="รูปภาพแมวของเรา">
-    <p>แมวทุกตัวฉีดวัคซีนและทำหมันแล้ว</p>
-
-    <h2>นิสัยของแมว</h2>
-    <ul>
-        <li>ขี้อ้อน</li>
-        <li>ชอบนอน</li>
-        <li>กินเก่ง</li>
-    </ul>
-
-    <a href="cats.html">ดูแมวทั้งหมด</a>
-
-    <form action="adopt.php" method="post">
-        <label for="adopter">ชื่อผู้รับเลี้ยง</label>
-        <input type="text" id="adopter" name="adopter">
-        <button type="submit">ขอรับเลี้ยง</button>
-    </form>
+<div class="page">
+<header class="topbar">
+<a class="brand" href="../index.html"><div class="brand-mark">♡</div><div><h1>PHP_7007</h1><small>My little space to learn &amp; grow ✨</small></div></a>
+<nav class="nav" aria-label="เมนูหลัก"><a href="../index.html">⌂ หน้าหลัก</a><a href="index.html">📚 Lesson 2</a><a href="../Lesson1/">🌷 Lesson 1</a><a href="../lesson3/">🦋 Lesson 3</a></nav>
+</header>
+<main>
+<section class="hero"><span class="decor left">🐾</span><span class="decor right">✿</span><span class="eyebrow">🎀 LESSON 02 · EXERCISE 06</span><h2>บ้าน<span>แมวเหมียว</span> 🐱</h2><p>พื้นที่เล็ก ๆ สำหรับทำความรู้จักสมาชิกแมวแสนน่ารัก พร้อมข้อมูลนิสัยและแบบฟอร์มแสดงความสนใจรับเลี้ยง</p></section>
+<div class="welcome">🌷 <strong>ยินดีต้อนรับสู่บ้านแมวเหมียว</strong> ทุกตัวสมควรได้รับความรัก ความใส่ใจ และบ้านที่อบอุ่น มาทำความรู้จักพวกเขากันนะคะ</div>
+<div class="section-head"><div><h3>🐾 ทำความรู้จักแมวของเรา</h3><p>ข้อมูลเบื้องต้นของสมาชิกบ้านแมวเหมียว</p></div><span>🐱 ✨</span></div>
+<section class="content-grid">
+<article class="card photo-card">
+<h3>สมาชิกแมวเหมียว</h3><p>เพื่อนตัวน้อยที่พร้อมเติมความสุขให้ทุกวัน</p>
+<div class="cat-photo"><img src="cat.jpg" alt="รูปภาพแมวของเรา" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="photo-fallback" style="display:none">🐈</span></div>
+<span class="health-note">💚 ดูแลสุขภาพด้วยความใส่ใจ</span>
+</article>
+<article class="card">
+<h3>💗 นิสัยของแมว</h3><p>แมวแต่ละตัวมีเสน่ห์และนิสัยน่ารักในแบบของตัวเอง</p>
+<div class="traits">
+<div class="trait"><span>🥰</span><strong>ขี้อ้อน</strong></div>
+<div class="trait"><span>😴</span><strong>ชอบนอน</strong></div>
+<div class="trait"><span>🐟</span><strong>กินเก่ง</strong></div>
+</div>
+<p class="health-note">✔ แมวทุกตัวได้รับวัคซีนและทำหมันแล้ว</p>
+</article>
+</section>
+<section class="card adopt" id="adopt">
+<h3>🏡 สนใจรับเลี้ยงแมว</h3><p>กรอกชื่อเพื่อแสดงความสนใจในการรับเลี้ยง และเตรียมมอบบ้านที่อบอุ่นให้สมาชิกตัวน้อย</p>
+<form action="adopt.php" method="post">
+<label for="adopter">ชื่อผู้สนใจรับเลี้ยง</label>
+<input type="text" id="adopter" name="adopter" placeholder="กรอกชื่อของคุณ" required>
+<button type="submit">ส่งความสนใจ ♡</button>
+</form>
+<p class="note">หมายเหตุ: แบบฟอร์มนี้เป็นตัวอย่างหน้าเว็บ การส่งข้อมูลจริงต้องมีระบบหลังบ้านรองรับ</p>
+</section>
+<div class="quick-links"><a class="pill" href="ex4.html#cats">ดูแมวทั้งหมด →</a><a class="pill" href="index.html">กลับหน้า Lesson 2</a><a class="pill" href="../index.html">กลับหน้าหลัก ⌂</a></div>
+</main>
+<footer>Made with ♡ · Learn · Create · Keep Growing 🌱</footer>
+</div>
 </body>
 </html>
