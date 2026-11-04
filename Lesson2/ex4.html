@@ -1,41 +1,89 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>คาเฟ่แมวเหมียว</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>คาเฟ่แมวเหมียว | PHP_7007</title>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#563d68;--muted:#887a95;--pink:#ff8fbd;--purple:#9a82ec;--line:#f2d9ec}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;color:var(--ink);font-family:Kanit,sans-serif;background:linear-gradient(135deg,#fff8fc,#f3efff 52%,#fff7ef)}
+a{color:inherit;text-decoration:none}
+.page{width:min(1120px,calc(100% - 36px));margin:auto}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:20px 0;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-mark{width:52px;height:52px;display:grid;place-items:center;border-radius:18px;color:white;font:900 26px Nunito;background:linear-gradient(135deg,#9a82ec,#ff91bf);box-shadow:0 8px 18px #c7a5df66}
+.brand h1{margin:0;font:900 23px Nunito}.brand small{display:block;color:var(--muted);font-size:12px}
+.nav{display:flex;gap:9px;flex-wrap:wrap}
+.nav a{padding:9px 15px;border:1px solid #ead5ed;border-radius:999px;background:#ffffffd9;font-size:14px;transition:.2s}
+.nav a:hover,.pill:hover{transform:translateY(-2px);box-shadow:0 8px 18px #b89ac533}
+.hero{position:relative;overflow:hidden;text-align:center;padding:clamp(34px,6vw,58px) 22px;border:2px solid #f7d5e9;border-radius:30px;background:linear-gradient(115deg,#ffe7f2,#f1eaff 58%,#fff0e6);box-shadow:0 15px 35px #c9a9d51c}
+.eyebrow{display:inline-block;padding:6px 14px;border-radius:999px;background:#fff;color:#cf6b9d;font-size:13px}
+.hero h2{margin:13px 0 5px;font-size:clamp(34px,5vw,52px);line-height:1.2;color:#68456f}
+.hero h2 span{color:#9876d6}.hero p{margin:8px auto 0;max-width:650px;color:#796985;line-height:1.9}
+.decor{position:absolute;font-size:54px;opacity:.2}.decor.left{left:5%;top:15%}.decor.right{right:6%;bottom:12%}
+.actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:22px}
+.pill{display:inline-block;padding:10px 18px;border-radius:999px;background:linear-gradient(100deg,#9b83e8,#ed8dbb);color:#fff;font-weight:600;box-shadow:0 7px 16px #c49bc744;transition:.2s}
+.pill.light{background:#fff;color:#8968bd;border:1px solid #ead5ed;box-shadow:none}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:30px 2px 15px}
+.section-head h3{margin:0;font-size:24px}.section-head p{margin:0;color:var(--muted);font-size:13px}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.card{padding:clamp(20px,3vw,28px);border:2px solid var(--line);border-radius:27px;background:#ffffffdf;box-shadow:0 10px 25px #bba6c51c}
+.card.pink{background:linear-gradient(145deg,#fff,#fff0f7);border-color:#f7cfe3}
+.card.purple{background:linear-gradient(145deg,#fff,#f4efff);border-color:#dfd2f5}
+.card h3{margin:0 0 12px;font-size:22px;color:#805b91}
+.card p{margin:0;color:#806f8c;line-height:1.9}
+.cat-count{display:flex;align-items:center;gap:14px;margin-top:20px;padding:15px;border-radius:18px;background:#fff}
+.cat-count strong{font:900 38px Nunito;color:#e47fac}.cat-count span{color:#806f8c}
+.cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}
+.cat{padding:18px 10px;text-align:center;border:1px solid #eedcf0;border-radius:21px;background:#fff;box-shadow:0 6px 15px #bba6c51a;transition:.2s}
+.cat:hover{transform:translateY(-4px);box-shadow:0 10px 20px #bba6c533}
+.cat .emoji{display:block;font-size:38px;margin-bottom:8px}.cat strong{display:block;color:#76548b}.cat small{color:#9a8ba4}
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
+.contact{padding:18px;border:1px solid #eadcf1;border-radius:20px;background:#fff;min-width:0}
+.contact .icon{font-size:26px}.contact strong{display:block;margin:7px 0 3px;color:#805b91}.contact p,.contact a{margin:0;color:#887a95;font-size:14px;overflow-wrap:anywhere}
+.contact a{text-decoration:underline;text-decoration-color:#d9b5dc}
+.note{margin-top:18px;padding:15px 18px;border:1px dashed #e7c8e8;border-radius:18px;background:#fff8fd;color:#806b91;line-height:1.8}
+.back-row{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:25px 0}
+footer{padding:20px 0 28px;text-align:center;color:#9a8ba4;font:700 12px Nunito}
+@media(max-width:760px){.topbar{align-items:flex-start}.nav a{font-size:12px;padding:8px 11px}.about-grid{grid-template-columns:1fr}.cat-grid{grid-template-columns:repeat(2,1fr)}.contact-grid{grid-template-columns:1fr}.section-head{display:block}.section-head p{margin-top:5px}.decor{font-size:34px}}
+</style>
 </head>
 <body>
-    <header id="top">
-    <h1>คาเฟ่แมวเหมียว</h1>
-    <nav>
-        <a href="#about">เกี่ยวกับเรา</a>
-        <a href="#cats">แมวในร้าน</a>
-        <a href="#contact">ติดต่อเรา</a>
-    </nav>
+<div class="page">
+<header class="topbar">
+<a class="brand" href="../index.html"><div class="brand-mark">♡</div><div><h1>PHP_7007</h1><small>My little space to learn &amp; grow ✨</small></div></a>
+<nav class="nav" aria-label="เมนูหลัก"><a href="../index.html">⌂ หน้าหลัก</a><a href="index.html">📚 Lesson 2</a><a href="../Lesson1/">🌷 Lesson 1</a><a href="../lesson3/">🦋 Lesson 3</a></nav>
 </header>
-
 <main>
-    <section id="about">
-        <h2>เกี่ยวกับเรา</h2>
-        <p>คาเฟ่ที่มีแมวให้เล่นด้วย 8 ตัว</p>
-    </section>
-
-    <section id="cats">
-        <h2>แมวในร้าน</h2>
-        <p>พบกับน้องแมวสุดน่ารักทั้ง 8 ตัว ที่รอต้อนรับทุกคนอยู่</p>
-    </section>
-
-    <section id="contact">
-        <h2>ติดต่อเรา</h2>
-        <p>โทรศัพท์: <a href="tel:0812345678">081-234-5678</a></p>
-        <p>อีเมล: <a href="mailto:hello@catcafe.com">hello@catcafe.com</a></p>
-        <p>แผนที่ร้าน: <a href="https://maps.google.com" target="_blank">เปิดแผนที่ใน Google Maps</a></p>
-    </section>
+<section class="hero" id="top"><span class="decor left">🐾</span><span class="decor right">♡</span><span class="eyebrow">🎀 LESSON 02 · EXERCISE 04</span><h2>คาเฟ่<span>แมวเหมียว</span> 🐱</h2><p>ยินดีต้อนรับสู่คาเฟ่แสนอบอุ่น ที่มีน้องแมวน่ารักทั้ง 8 ตัวรอต้อนรับทุกคน มาใช้เวลาพักผ่อนและเติมความสุขไปด้วยกันนะคะ</p><div class="actions"><a class="pill" href="#cats">รู้จักน้องแมว 🐾</a><a class="pill light" href="#contact">ติดต่อเรา</a></div></section>
+<div class="section-head" id="about"><div><h3>🌸 เกี่ยวกับเรา</h3><p>พื้นที่เล็ก ๆ ที่เต็มไปด้วยความสุขและเสียง мур</p></div><span>☕ ✨</span></div>
+<section class="about-grid">
+<article class="card pink"><h3>ยินดีต้อนรับสู่ Cat Cafe ♡</h3><p>คาเฟ่แมวเหมียวเป็นมุมพักผ่อนแสนสบายสำหรับคนรักแมว ภายในร้านมีบรรยากาศอบอุ่นและน้องแมวขี้เล่นคอยสร้างรอยยิ้มให้กับผู้มาเยือน เหมาะสำหรับการพักผ่อนและเก็บช่วงเวลาดี ๆ</p><div class="cat-count"><strong>8</strong><span>น้องแมวตัวน้อย<br>พร้อมทักทายทุกคน 🐾</span></div></article>
+<article class="card purple"><h3>💜 ความสุขในทุกครั้งที่มาเยือน</h3><p>เราตั้งใจให้ทุกคนได้ใช้เวลาอย่างผ่อนคลาย เพลิดเพลินกับบรรยากาศสบาย ๆ และทำความรู้จักกับเหล่าน้องแมวอย่างอ่อนโยน อย่าลืมดูแลน้อง ๆ และปฏิบัติตามกติกาของร้านด้วยนะคะ</p><div class="note">✨ กรุณาเล่นกับน้องแมวอย่างเบามือ และให้น้องได้พักผ่อนเมื่อรู้สึกเหนื่อย</div></article>
+</section>
+<div class="section-head" id="cats"><div><h3>🐱 สมาชิกแมวเหมียวทั้ง 8 ตัว</h3><p>พบกับเหล่าสมาชิกขนฟูของร้าน</p></div><span>🐾</span></div>
+<section class="cat-grid" aria-label="สมาชิกแมวทั้ง 8 ตัว">
+<div class="cat"><span class="emoji">🐱</span><strong>น้องเหมียว 01</strong><small>สมาชิกคาเฟ่</small></div>
+<div class="cat"><span class="emoji">😺</span><strong>น้องเหมียว 02</strong><small>สมาชิกคาเฟ่</small></div>
+<div class="cat"><span class="emoji">😸</span><strong>น้องเหมียว 03</strong><small>สมาชิกคาเฟ่</small></div>
+<div class="cat"><span class="emoji">😻</span><strong>น้องเหมียว 04</strong><small>สมาชิกคาเฟ่</small></div>
+<div class="cat"><span class="emoji">🐈</span><strong>น้องเหมียว 05</strong><small>สมาชิกคาเฟ่</small></div>
+<div class="cat"><span class="emoji">🐈‍⬛</span><strong>น้องเหมียว 06</strong><small>สมาชิกคาเฟ่</small></div>
+<div class="cat"><span class="emoji">😽</span><strong>น้องเหมียว 07</strong><small>สมาชิกคาเฟ่</small></div>
+<div class="cat"><span class="emoji">🙀</span><strong>น้องเหมียว 08</strong><small>สมาชิกคาเฟ่</small></div>
+</section>
+<div class="section-head" id="contact"><div><h3>💌 ติดต่อเรา</h3><p>สอบถามข้อมูลเพิ่มเติมได้ตามช่องทางด้านล่าง</p></div><span>🌷</span></div>
+<section class="contact-grid">
+<div class="contact"><span class="icon">📞</span><strong>โทรศัพท์</strong><a href="tel:0812345678">081-234-5678</a></div>
+<div class="contact"><span class="icon">✉️</span><strong>อีเมล</strong><a href="mailto:hello@catcafe.com">hello@catcafe.com</a></div>
+<div class="contact"><span class="icon">📍</span><strong>แผนที่ร้าน</strong><a href="https://maps.google.com" target="_blank" rel="noopener noreferrer">เปิดแผนที่ใน Google Maps</a></div>
+</section>
+<div class="back-row"><a class="pill light" href="ex3.html">← แบบฝึกหัดที่ 3</a><a class="pill light" href="index.html">กลับหน้า Lesson 2</a><a class="pill" href="../index.html">กลับหน้าหลัก ⌂</a></div>
 </main>
-
-<footer>
-    <a href="#top">กลับขึ้นบนสุด</a>
-</footer>
+<footer><a href="#top">กลับขึ้นบนสุด ↑</a><br><br>Made with ♡ · Learn · Create · Keep Growing 🌱</footer>
+</div>
 </body>
 </html>
