@@ -1,11 +1,104 @@
-<p>ราคา <span id="price">45</span> บาท</p>
-<input id="qty" value="3">
-<p id="total"></p>
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>แบบฝึกหัดที่ 2 · การคำนวณราคา | PHP_7007</title>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#563d68;--muted:#887a95;--pink:#ff91bf;--purple:#9a82ec}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;color:var(--ink);font-family:Kanit,sans-serif;background:linear-gradient(135deg,#fff9fc,#f5f0ff 55%,#fff8f2)}
+a{color:inherit;text-decoration:none}.page{width:min(1080px,calc(100% - 36px));margin:auto}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:22px 0;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px}.brand-mark{width:52px;height:52px;display:grid;place-items:center;border-radius:18px;color:white;font:900 25px Nunito;background:linear-gradient(135deg,#9a82ec,#ff91bf);box-shadow:0 8px 18px #c7a5df66}
+.brand h1{margin:0;font:900 23px Nunito}.brand small{display:block;color:var(--muted);font-size:12px}
+.nav{display:flex;gap:9px;flex-wrap:wrap}.nav a,.btn{padding:9px 15px;border:1px solid #ead5ed;border-radius:999px;background:#ffffffdf;font-size:13px;transition:.2s}
+.nav a:hover,.btn:hover{transform:translateY(-2px);box-shadow:0 8px 18px #b89ac533}
+.hero{position:relative;overflow:hidden;padding:clamp(30px,5vw,52px);border:2px solid #f7d5e9;border-radius:32px;background:linear-gradient(115deg,#ffe9f3ed,#f5edffed 58%,#fff1e9ed);box-shadow:0 15px 35px #c9a9d51c}
+.hero:after{content:'✿';position:absolute;right:5%;top:5%;font-size:90px;color:#f3b9d866;transform:rotate(15deg)}
+.eyebrow{display:inline-block;padding:6px 14px;border-radius:999px;background:#fff;color:#cf6b9d;font-size:13px}
+.hero h2{position:relative;z-index:1;margin:15px 0 8px;font-size:clamp(30px,5vw,46px);line-height:1.2}.hero h2 span{color:#9a79d9}
+.hero p{position:relative;z-index:1;max-width:680px;margin:0;color:#796985;font-size:15px;line-height:1.9}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:30px 2px 15px}.section-head h3{margin:0;font-size:23px}.section-head p{margin:0;color:var(--muted);font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:17px}.card{padding:22px;border:2px solid #f2d9ec;border-radius:25px;background:#ffffffdf;box-shadow:0 9px 24px #bba6c51c}
+.card.pink{background:#fff2f7;border-color:#ffd7e7}.card.purple{background:#f6f1ff;border-color:#e3d8fb}
+.card h3{margin:0 0 8px;font-size:19px}.card p{margin:0;color:#796d84;font-size:14px;line-height:1.8}
+.icon{width:42px;height:42px;display:grid;place-items:center;border-radius:14px;background:#fff;font-size:22px;margin-bottom:10px}
+.calc{margin-top:18px;padding:clamp(20px,4vw,30px);border:2px solid #e5dafa;border-radius:27px;background:#fff;box-shadow:0 9px 24px #bba6c51c}
+.calc h3{margin:0 0 7px;font-size:22px}.sub{margin:0 0 20px;color:#887a95;font-size:14px}
+.product{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:17px;border-radius:19px;background:linear-gradient(100deg,#fff0f6,#f4efff);margin-bottom:18px}
+.product strong{font-size:18px}.price{font:900 25px Nunito;color:#9b76d7}.price small{font:500 13px Kanit;color:#887a95}
+label{display:block;margin:0 0 8px;font-weight:600}.field{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+input{width:150px;max-width:100%;padding:12px 14px;border:2px solid #e8dafa;border-radius:14px;background:#fffbff;color:var(--ink);font:600 16px Kanit;outline:none}
+input:focus{border-color:#aa91e8;box-shadow:0 0 0 3px #aa91e822}
+.btn{display:inline-flex;align-items:center;justify-content:center;cursor:pointer;color:#8064b7;font:600 14px Kanit}
+.btn.primary{border:0;background:linear-gradient(100deg,#9b83e8,#ed8dbb);color:white;box-shadow:0 7px 16px #c7a5df55;padding:11px 19px}
+.result{margin-top:18px;padding:19px;border:1px solid #d9efdf;border-radius:18px;background:#f0fbf3;text-align:center}
+.result small{display:block;color:#64836b}.result strong{display:block;margin-top:3px;color:#43845a;font:900 clamp(25px,5vw,34px) Nunito}
+.note{margin:12px 0 0;color:#8b7b99;font-size:13px;line-height:1.8}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+footer{padding:25px 0 30px;text-align:center;color:#9a8ba4;font:700 12px Nunito}
+@media(max-width:700px){.topbar{align-items:flex-start}.nav a{font-size:12px;padding:8px 11px}.grid{grid-template-columns:1fr}.section-head{display:block}.section-head p{margin-top:5px}.product{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<div class="page">
+<header class="topbar">
+<a class="brand" href="../index.html"><div class="brand-mark">♡</div><div><h1>PHP_7007</h1><small>My little space to learn &amp; grow ✨</small></div></a>
+<nav class="nav" aria-label="เมนูหลัก"><a href="../index.html">⌂ หน้าหลัก</a><a href="index.html">📚 Lesson 3</a><a href="../Lesson1/">🌷 Lesson 1</a><a href="../Lesson2/">🎀 Lesson 2</a></nav>
+</header>
+<main>
+<section class="hero">
+<span class="eyebrow">🦋 LESSON 03 · EXERCISE 02</span>
+<h2>ฝึกคำนวณ <span>ราคารวม</span> 🧁</h2>
+<p>เรียนรู้การรับค่าจากช่องกรอกข้อมูลด้วย JavaScript และนำค่ามาคำนวณราคา โดยใช้ตัวอย่างการซื้อสินค้าจากร้านกาแฟแมวเหมียว</p>
+</section>
+<div class="section-head"><div><h3>🌷 สิ่งที่จะได้เรียนรู้</h3><p>การอ่านค่าจากหน้าเว็บและนำมาคำนวณ</p></div><span>📖 💜</span></div>
+<section class="grid">
+<article class="card pink"><div class="icon">🏷️</div><h3>อ่านค่าราคา</h3><p>ใช้ document.getElementById() เพื่อเลือกข้อมูลจากหน้าเว็บ และใช้ textContent อ่านข้อความราคา</p></article>
+<article class="card purple"><div class="icon">🔢</div><h3>แปลงค่าและคำนวณ</h3><p>ใช้ Number() แปลงข้อความให้เป็นตัวเลข จากนั้นคูณราคาต่อชิ้นกับจำนวนสินค้า</p></article>
+</section>
+<section class="calc">
+<h3>💻 ทดลองคำนวณราคาสินค้า</h3>
+<p class="sub">ลองเปลี่ยนจำนวนสินค้า แล้วกดปุ่มคำนวณเพื่อดูผลลัพธ์ค่ะ</p>
+<div class="product"><div><strong>☕ เมนูร้านกาแฟแมวเหมียว</strong><div style="color:#887a95;font-size:13px">ราคาต่อแก้ว</div></div><div class="price"><span id="price">45</span> <small>บาท</small></div></div>
+<label for="qty">จำนวนที่ต้องการ (แก้ว)</label>
+<div class="field"><input id="qty" type="number" min="1" max="99" step="1" value="3" inputmode="numeric"><button class="btn primary" id="calculate" type="button">คำนวณราคา ✨</button><button class="btn" id="reset" type="button">เริ่มใหม่</button></div>
+<div class="result" aria-live="polite"><small>ยอดรวมทั้งหมด</small><strong id="total">135 บาท</strong></div>
+<p class="note">💡 สูตรคำนวณ: ราคาต่อแก้ว × จำนวนที่สั่ง เช่น 45 × 3 = 135 บาท</p>
+</section>
+<div class="section-head"><div><h3>🧁 ตัวอย่างโค้ด JavaScript</h3><p>คำสั่งสำคัญที่ใช้ในการคำนวณ</p></div></div>
+<section class="calc" style="background:#fffafc">
+<pre style="margin:0;padding:18px;overflow:auto;border-radius:16px;background:#352d45;color:#f8efff;font:14px/1.9 Consolas,monospace"><code>const price = Number(document.getElementById("price").textContent);
+const qty = Number(document.getElementById("qty").value);
 
+const total = price * qty;
+document.getElementById("total").textContent = total + " บาท";</code></pre>
+<p class="note">สังเกตว่า value ใช้อ่านค่าจากช่อง input ส่วน textContent ใช้อ่านหรือเปลี่ยนข้อความภายใน element</p>
+</section>
+<nav class="actions" aria-label="ลิงก์ไปยังหน้าอื่น"><a class="btn primary" href="index.html">← กลับเมนู Lesson 3</a><a class="btn" href="../index.html">⌂ กลับหน้าหลัก</a><a class="btn" href="ex1.html">← แบบฝึกหัดที่ 1</a><a class="btn" href="ex3.html">แบบฝึกหัดถัดไป →</a></nav>
+</main>
+<footer>Made with ♡ · Learn · Create · Keep Growing 🌱</footer>
+</div>
 <script>
-    const price = Number(document.getElementById("price").textContent);   // 45
-    const qty   = Number(document.getElementById("qty").value);           // 3
-
-    document.getElementById("total").textContent = "รวม " + (price * qty) + " บาท";
-    // หน้าเว็บขึ้นว่า: รวม 135 บาท
+const priceElement = document.getElementById("price");
+const quantityInput = document.getElementById("qty");
+const totalElement = document.getElementById("total");
+function calculateTotal() {
+  const price = Number(priceElement.textContent);
+  const quantity = Number(quantityInput.value);
+  if (!Number.isInteger(quantity) || quantity < 1 || quantity > 99) {
+    totalElement.textContent = "กรุณากรอกจำนวน 1–99";
+    return;
+  }
+  totalElement.textContent = (price * quantity).toLocaleString("th-TH") + " บาท";
+}
+document.getElementById("calculate").addEventListener("click", calculateTotal);
+document.getElementById("reset").addEventListener("click", function () {
+  quantityInput.value = 3;
+  calculateTotal();
+});
+quantityInput.addEventListener("input", calculateTotal);
 </script>
+</body>
+</html>
